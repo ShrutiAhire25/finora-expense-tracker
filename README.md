@@ -1,94 +1,30 @@
-# 💰 FINORA – Smart Expense Tracker
+# FINORA — Frontend + Backend
 
-FINORA is a modern, responsive expense tracking web application designed to help users manage their income and expenses in a simple and visually appealing way.
+## Requirements
+- Install Node.js LTS from https://nodejs.org/ (choose the LTS version).
+- VS Code or another editor.
 
-The application provides financial summaries, transaction management, spending analytics, and an AI-style spending advisor that analyzes recorded transactions and provides personalized financial suggestions.
+## Run on Windows
+1. Extract this folder.
+2. Open the `finora_backend_project` folder in VS Code.
+3. Open Terminal → New Terminal.
+4. Install dependencies:
+   ```bash
+   npm install
+   ```
+5. Start the backend:
+   ```bash
+   npm start
+   ```
+6. Open **http://localhost:3000** in Chrome. Do not open `index.html` directly.
 
-## ✨ Features
+## Features
+- Existing FINORA frontend design.
+- SQLite database file `finora.db` is created in the project root on first run.
+- Add and delete transactions from the dashboard.
+- Search and type filters.
+- Dashboard totals, donut chart, category breakdown and rule-based advisor recalculate from saved transactions.
+- REST endpoints: `GET /api/health`, `GET /api/transactions`, `POST /api/transactions`, `PUT /api/transactions/:id`, `DELETE /api/transactions/:id`, `GET /api/summary`.
 
-* 🌑 Premium dark-themed user interface
-* 💰 Income and expense tracking
-* 📊 Financial dashboard
-* 📈 Spending analytics
-* 🍩 Dynamic expense category chart
-* 🔍 Transaction search and filtering
-* 🗑️ Delete transactions
-* 💾 Local Storage for saving transaction data
-* 📱 Responsive design
-* 🤖 AI-style spending advisor
-* 💡 Personalized saving recommendations
-* 📊 Savings-rate calculation
-* 🏆 Financial health score
-* 🌅 Dynamic time-based greeting
-
-## 🤖 AI-Style Financial Advisor
-
-FINORA includes an AI-style financial advisor that analyzes the user's transaction data.
-
-The advisor can:
-
-* Identify categories with high spending
-* Detect when expenses are greater than income
-* Calculate the user's savings rate
-* Highlight unnecessary or excessive spending
-* Provide suggestions for reducing expenses
-* Give basic investment-readiness guidance
-* Generate a financial health score
-
-The current advisor uses rule-based financial analysis rather than an external AI API. This keeps the application fully client-side and makes the recommendation logic transparent.
-
-## 🛠️ Technologies Used
-
-* HTML5
-* CSS3
-* JavaScript
-* Local Storage
-* Chart.js
-
-## 📂 Project Structure
-
-```text
-FINORA/
-│
-├── index.html
-├── style.css
-├── script.js
-└── screenshots/
-    ├── dashboard.png
-    └── advisor.png
-```
-
-## 🚀 How to Run
-
-1. Download or clone this repository.
-2. Open the project folder.
-3. Open `index.html` in a web browser.
-4. Start adding income and expense transactions.
-
-No backend or database setup is required.
-
-## 💾 Data Storage
-
-FINORA uses the browser's Local Storage to save transaction data.
-
-This means the data is stored locally in the user's browser and is not sent to a server.
-
-## 🎯 Future Improvements
-
-Possible future improvements include:
-
-* Real AI integration using an AI API
-* User authentication
-* Cloud database
-* Monthly and yearly financial reports
-* Budget limits
-* Investment recommendations
-* Export transactions to CSV/PDF
-* Recurring transactions
-* Advanced financial forecasting
-
-## 👩‍💻 Author
-
-**Shruti Ahire**
-
-Built as a web development mini-project to explore frontend development, financial data visualization, browser storage, and intelligent spending recommendations.
+## Important
+This starter is a local single-user app, not yet a secure multi-user hosted product. Do not store bank credentials or sensitive financial account details in it. To make it accessible over the internet or support separate user accounts, add authentication, authorization, HTTPS and a hosted database before deployment.
