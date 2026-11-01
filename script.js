@@ -789,3 +789,65 @@ function escapeHTML(value) {
     div.textContent = String(value ?? "");
     return div.innerHTML;
 }
+
+/* =========================================
+   FINORA LOGIN FUNCTIONALITY
+========================================= */
+
+const loginPage = document.getElementById("loginPage");
+const loginForm = document.getElementById("loginForm");
+const loginEmail = document.getElementById("loginEmail");
+const loginPassword = document.getElementById("loginPassword");
+const loginError = document.getElementById("loginError");
+
+const finoraApp = document.querySelector(".app");
+
+// Check whether this browser has an active demo session
+function checkLoginStatus() {
+    const isLoggedIn =
+        sessionStorage.getItem("finoraLoggedIn") === "true";
+
+    if (isLoggedIn) {
+        loginPage.style.display = "none";
+        finoraApp.classList.add("is-authenticated");
+    } else {
+        loginPage.style.display = "flex";
+        finoraApp.classList.remove("is-authenticated");
+    }
+}
+
+// Handle login form submission
+loginForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const email = loginEmail.value.trim();
+    const password = loginPassword.value;
+
+    loginError.textContent = "";
+
+    if (!email || !password) {
+        loginError.textContent =
+            "Please enter your email and password.";
+        return;
+    }
+
+    // Demo-only login:
+    // This checks that the fields are filled in.
+    // It does not verify a real account or password.
+
+    sessionStorage.setItem("finoraLoggedIn", "true");
+    sessionStorage.setItem("finoraUserEmail", email);
+
+    checkLoginStatus();
+
+    // Display the user's initials in the profile button
+    const profileButton = document.querySelector(".profile");
+
+    if (profileButton) {
+        profileButton.textContent =
+            email.substring(0, 2).toUpperCase();
+    }
+});
+
+// Run the login check when the page loads
+checkLoginStatus();
